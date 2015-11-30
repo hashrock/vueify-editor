@@ -1,6 +1,7 @@
 var Vue = require("vue");
 var request = require("superagent");
 var CodeMirror = require("codemirror");
+var App = require('../app.vue');
 
 var myCodeMirror;
 var app = new Vue({
@@ -45,6 +46,8 @@ var app = new Vue({
 			self.contents = data.body.contents;
 			myCodeMirror.setValue(data.body.contents);
 		})
-
+	},
+	components: {
+		app: App
 	}
 });

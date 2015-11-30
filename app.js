@@ -9,6 +9,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+var browserify = require('browserify')
+var vueify = require('vueify')
+var hmr = require('browserify-hmr');
+
+var main = browserify('./public/main.js').plugin(hmr)
 
 var router = express.Router();
 
@@ -20,6 +25,7 @@ router.get('/', function(req, res, next) {
 });
 router.post("/", function(req, res, next){
   fs.writeFileSync("app.vue", req.body.contents, "utf-8");
+  updateBundle();
   res.json({ result: "success" });
 })
 
@@ -39,5 +45,12 @@ app.use(function(err, req, res, next) {
   });
 });
 
+function updateBundle(){
+    main.transform(vueify)
+      .bundle()
+      .pipe(fs.createWriteStream("public/bundle.js"))
+}
+
+updateBundle();
 
 module.exports = app;

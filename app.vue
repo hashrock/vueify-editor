@@ -1,12 +1,20 @@
 <style>
+  .red {
+    color: #f00;
+  }
 </style>
 
-<template lang="jade">
-h1(class="red") {{msg}}
+<template>
+  <h1 class="red">{{msg}}</h1>
+  <p>hey22</p>
 </template>
 
-<script lang="coffee">
-module.exports =
-  data: ->
-    msg: 'Hello world!'
+<script>
+  module.exports = {
+    data: function () {
+      return {
+        msg: 'Hello world!'
+      }
+    }
+  }
 </script>
