@@ -1,0 +1,26 @@
+{
+  "name": "sushiedit",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "watch:js": "watchify ${npm_package_config_src_js} -o ${npm_package_config_dist_js} -dv"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "morgan": "~1.6.1"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "codemirror": "^5.9.0",
+    "superagent": "^1.4.0",
+    "vue": "^1.0.10",
+    "watchify": "^3.6.1"
+  },
+  "config": {
+    "src_js": "public/main.js",
+    "dist_js": "public/bundle.js"
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sushi-Editor</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			height: 100%;
+			font-size: 20px;
+		}
+		body{
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		textarea{
+			flex: 1;
+			padding: 20px;
+			background: #333;
+			color: white;
+			font-family: sans-serif;
+		}
+		footer{
+			height: 2rem;
+		}
+		.footer__save{
+			height: 2rem;
+			padding: 10px;
+			width: 200px;
+			background-color: green;
+			color: white;
+		}
+	</style>
+</head>
+<body id="app">
+	<textarea v-model="contents"></textarea>
+	<footer><button class="footer__save" @click="save">Save</button> {{saved}}</footer>
+	<script src="bundle.js"></script>
+</body>
+</html>
