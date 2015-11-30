@@ -6,7 +6,7 @@
 
 <template>
   <h1 class="red">{{msg}}</h1>
-  <p>hey22</p>
+  <p>Hey</p>
 </template>
 
 <script>

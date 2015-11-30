@@ -25,9 +25,7 @@
 		.save{
 			height: 2rem;
 			padding: 10px;
-			width: 200px;
-			background-color: green;
-			color: white;
+			width: 300px;
 		}
 		.CodeMirror {
 			border: 1px solid #eee;
@@ -50,8 +48,8 @@
 <body id="app">
 	<div class="editorContainer"></div>
 	<div class="previewContainer">
-		<button class="save" @click="save">Save</button>
-		<p>{{saved}}</p>
+		<button class="save" @click="save">Save(Ctrl-S)</button>
+		<!--<p>{{saved}}</p>-->
 		<app></app>
 	</div>
 	<script src="bundle.js"></script>

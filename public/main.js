@@ -34,7 +34,12 @@ var app = new Vue({
 			document.querySelector(".editorContainer"),
 			{
 				lineNumbers: true,
-				mode: "text/x-vue"
+				mode: "text/x-vue",
+				 extraKeys: {
+					"Ctrl-S": function(instance) {
+						self.save();
+					}
+				}
 			}
 		);
 
