@@ -8,20 +8,21 @@
 		*{
 			box-sizing: border-box;
 		}
-		html{
+		html, body{
 			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		
+		html{
 			font-size: 40px;
 		}
 		body{
-			height: 100%;
-			flex-direction: column;
 			display: flex;
 		}
 
-		footer{
-			height: 2rem;
-		}
-		.footer__save{
+
+		.save{
 			height: 2rem;
 			padding: 10px;
 			width: 200px;
@@ -39,12 +40,19 @@
 			position: relative;
 			overflow-y: scroll;
 		}
+		.previewContainer{
+			flex: 1;
+			
+		}
 
 	</style>
 </head>
 <body id="app">
 	<div class="editorContainer"></div>
-	<footer><button class="footer__save" @click="save">Save</button> {{saved}}</footer>
+	<div class="previewContainer">
+		<button class="save" @click="save">Save</button>
+		<p>{{saved}}</p>
+	</div>
 	<script src="bundle.js"></script>
 </body>
 </html>

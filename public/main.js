@@ -45,8 +45,6 @@ var app = new Vue({
 			self.contents = data.body.contents;
 			myCodeMirror.setValue(data.body.contents);
 		})
-		
 
-		
 	}
 });
