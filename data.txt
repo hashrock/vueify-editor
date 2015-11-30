@@ -1,6 +1,14 @@
-test
+<style lang="stylus">
+.red
+  color #f00
+</style>
 
-testtestet
+<template lang="jade">
+h1(class="red") {{msg}}
+</template>
 
-
-testestetst
+<script lang="coffee">
+module.exports =
+  data: ->
+    msg: 'Hello world!'
+</script>

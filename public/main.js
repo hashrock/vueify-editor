@@ -1,6 +1,8 @@
 var Vue = require("vue");
 var request = require("superagent");
+var CodeMirror = require("codemirror");
 
+var myCodeMirror;
 var app = new Vue({
 	el: "#app",
 	data: {
@@ -16,7 +18,7 @@ var app = new Vue({
 			request
 				.post("/api")
 				.type('form')
-				.send({contents: self.contents})
+				.send({contents: myCodeMirror.getValue()})
 				.end(function(err, res){
 					console.log(res.body);
 					self.saved = new Date();
@@ -25,6 +27,15 @@ var app = new Vue({
 	},
 	ready: function(){
 		var self = this;
+		
+		
+		myCodeMirror = CodeMirror(
+			document.querySelector(".editorContainer"),
+			{
+				lineNumbers: true,
+				mode: "text/x-vue"
+			}
+		);
 
 		console.log("loaded");
 		request.get("/api", function(err, data){
@@ -32,6 +43,10 @@ var app = new Vue({
 				console.log(err);
 			}
 			self.contents = data.body.contents;
+			myCodeMirror.setValue(data.body.contents);
 		})
+		
+
+		
 	}
 });

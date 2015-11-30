@@ -3,28 +3,21 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Sushi-Editor</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.9.0/codemirror.css">
 	<style>
 		*{
 			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
 		}
 		html{
 			height: 100%;
-			font-size: 20px;
+			font-size: 40px;
 		}
 		body{
 			height: 100%;
-			display: flex;
 			flex-direction: column;
+			display: flex;
 		}
-		textarea{
-			flex: 1;
-			padding: 20px;
-			background: #333;
-			color: white;
-			font-family: sans-serif;
-		}
+
 		footer{
 			height: 2rem;
 		}
@@ -35,10 +28,22 @@
 			background-color: green;
 			color: white;
 		}
+		.CodeMirror {
+			border: 1px solid #eee;
+			height: 100%;
+		}
+		.editorContainer{
+			flex: 1;
+			padding: 20px;
+			font-family: sans-serif;
+			position: relative;
+			overflow-y: scroll;
+		}
+
 	</style>
 </head>
 <body id="app">
-	<textarea v-model="contents"></textarea>
+	<div class="editorContainer"></div>
 	<footer><button class="footer__save" @click="save">Save</button> {{saved}}</footer>
 	<script src="bundle.js"></script>
 </body>
