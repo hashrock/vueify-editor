@@ -9,6 +9,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+console.log(path.join(__dirname, 'public'));
 
 var router = express.Router();
 
@@ -39,11 +40,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// ${npm_package_config_src_js} -o ${npm_package_config_dist_js} -dv
 var exec = require('child_process').exec,
     child;
 
-child = exec('watchify public/main.js -o public/bundle.js -dv -t vueify -p browserify-hmr',
+child = exec('watchify editor/public/main.js -o editor/public/bundle.js -dv -t vueify -p browserify-hmr',
   function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
@@ -51,5 +51,9 @@ child = exec('watchify public/main.js -o public/bundle.js -dv -t vueify -p brows
       console.log('exec error: ' + error);
     }
 });
+
+fs.exists("./app.vue", function(exists){
+  fs.createReadStream('./template/app.vue').pipe(fs.createWriteStream('./app.vue'));
+})
 
 module.exports = app;

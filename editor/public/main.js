@@ -1,7 +1,7 @@
 var Vue = require("vue");
 var request = require("superagent");
 var CodeMirror = require("codemirror");
-var App = require('../app.vue');
+var App = require('../../app.vue');
 
 var myCodeMirror;
 var app = new Vue({
@@ -42,7 +42,6 @@ var app = new Vue({
 				}
 			}
 		);
-
 		console.log("loaded");
 		request.get("/api", function(err, data){
 			if(err){

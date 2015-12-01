@@ -6,15 +6,13 @@
 
 <template>
   <h1 class="red">{{msg}}</h1>
-  <div v-for="item in items" class="">{{item}}</div>
 </template>
 
 <script>
   module.exports = {
     data: function () {
       return {
-        msg: 'Hello world!',
-        items: ["first", "second", "third"]
+        msg: 'Hello world!'
       }
     }
   }

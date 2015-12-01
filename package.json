@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ./editor/www",
     "watch:js": "watchify ${npm_package_config_src_js} -o ${npm_package_config_dist_js} -dv"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "browserify": "^12.0.1",
     "codemirror": "^5.9.0",
+    "emmet-codemirror": "^1.2.5",
     "superagent": "^1.4.0",
     "vue": "^1.0.10",
     "watchify": "^3.6.1"
