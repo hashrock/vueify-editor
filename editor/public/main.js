@@ -9,7 +9,9 @@ var app = new Vue({
 	data: {
 		message: "data",
 		contents : "",
-		saved: ""
+		saved: "",
+		autosave: true,
+		backup : ""
 	},
 	methods: {
 		save: function(){
@@ -29,7 +31,6 @@ var app = new Vue({
 	ready: function(){
 		var self = this;
 		
-		
 		myCodeMirror = CodeMirror(
 			document.querySelector(".editorContainer"),
 			{
@@ -48,6 +49,7 @@ var app = new Vue({
 				console.log(err);
 			}
 			self.contents = data.body.contents;
+			self.backup = data.body.contents;
 			myCodeMirror.setValue(data.body.contents);
 		})
 	},

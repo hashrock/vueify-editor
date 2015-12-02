@@ -19,6 +19,34 @@
 		}
 		body{
 			display: flex;
+			flex-direction: column;
+		}
+		header{
+			padding: 10px;
+			box-shadow: 0px 0px 5px #333;
+			margin-bottom: 10px;
+		}
+		header > h1{
+			font-size: 1rem;
+			line-height: 2rem;
+			float:left;
+			margin: 0;
+			padding: 0;
+			color: #4AC303;
+		}
+		header > label{
+			float:right;
+			line-height: 2rem;
+		}
+		.lastsave{
+			font-size: 0.5rem;
+			float:right;
+			line-height: 2rem;
+			color: #999;
+		}
+		.container{
+			flex: 1;
+			display: flex;
 		}
 
 		.save{
@@ -39,15 +67,25 @@
 		}
 		.previewContainer{
 			flex: 1;
-			
 		}
 
 	</style>
 </head>
 <body id="app">
-	<div class="editorContainer"></div>
-	<div class="previewContainer">
-		<app></app>
+	<header>
+		<h1>Vueify Editor</h1>
+		<label>
+			<input type="checkbox" v-model="autosave">
+			AutoSave
+		</label>
+		<div class="lastsave">{{saved}}</div>
+		
+	</header>
+	<div class="container">
+		<div class="editorContainer"></div>
+		<div class="previewContainer">
+			<app></app>
+		</div>
 	</div>
 	<script src="bundle.js"></script>
 </body>
