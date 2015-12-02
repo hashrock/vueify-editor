@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./editor/www",
-    "watch:js": "watchify ${npm_package_config_src_js} -o ${npm_package_config_dist_js} -dv"
+    "start": "node ./editor/www"
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.1.18",
@@ -27,9 +26,5 @@
     "superagent": "^1.4.0",
     "vue": "^1.0.10",
     "watchify": "^3.6.1"
-  },
-  "config": {
-    "src_js": "public/main.js",
-    "dist_js": "public/bundle.js"
   }
 }
