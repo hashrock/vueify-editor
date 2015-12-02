@@ -3,6 +3,9 @@ var request = require("superagent");
 var CodeMirror = require("codemirror");
 var App = require('../../app.vue');
 
+var lodash = require("lodash");
+var debounce;
+
 var myCodeMirror;
 var app = new Vue({
 	el: "#app",
@@ -42,7 +45,18 @@ var app = new Vue({
 					}
 				}
 			}
-			);
+		);
+		myCodeMirror.on("keyup", function(){
+			if(debounce === undefined){
+				debounce = lodash.debounce(function(){
+					self.save();
+				}, 1000);
+			}
+			
+			if(self.autosave){
+				debounce();
+			}
+		})
 		console.log("loaded");
 		request.get("/api", function (err, data) {
 			if (err) {
