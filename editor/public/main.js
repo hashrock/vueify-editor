@@ -28,24 +28,24 @@ var app = new Vue({
 				});
 		}	
 	},
-	ready: function(){
+	ready: function () {
 		var self = this;
-		
+
 		myCodeMirror = CodeMirror(
 			document.querySelector(".editorContainer"),
 			{
 				lineNumbers: true,
 				mode: "text/x-vue",
-				 extraKeys: {
-					"Ctrl-S": function(instance) {
+				extraKeys: {
+					"Ctrl-S": function (instance) {
 						self.save();
 					}
 				}
 			}
-		);
+			);
 		console.log("loaded");
-		request.get("/api", function(err, data){
-			if(err){
+		request.get("/api", function (err, data) {
+			if (err) {
 				console.log(err);
 			}
 			self.contents = data.body.contents;
